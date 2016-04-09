@@ -1,4 +1,6 @@
 #!/usr/bin/python
+import sys
+sys.path.append('../Adafruit_I2C/')
 
 import time
 import math
