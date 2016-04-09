@@ -1,102 +1,51 @@
-import RPi.GPIO as GPIO
+from Adafruit_PWM_Servo_Driver import PWM
 import time
 
-delay = 0.0
-duration = 0.0
-lowerRange = 0.0
-higherRange = 0.0
-interval = 0.0
+delay = float(raw_input("Type a delay between speed changes in ms: "))
+duration = float(raw_input("Type a duration for the oscillation: "))
+lowerPowerRange = float(raw_input("Enter the lower power range: "))
+higherPowerRange = float(raw_input("Enter the higher power range: "))
+powerStep = float(raw_input("Enter the step for power: "))
+channel = int(raw_input("Enter the ESC channel: "))
 
-while True:
-    try:
-        delay = float(raw_input("Type a delay between duty cycles in ms: "))
-    except ValueError:
-        print "Numbers higher than 0 only"
-    else:
-        if delay < 0:
-            print "Numbers higher than 0 only"
-        else:
-            delay = delay/1000
-            break
-
-while True:
-    try:
-        duration = float(raw_input("Type a duration between duty cycles in ms: "))
-    except ValueError:
-        print "Numbers higher than 0 only"
-    else:
-        if duration < 100:
-            "Numbers higher than 0 only"
-        else:
-            duration = duration/1000
-            break
-
-while True:
-    try:
-        lowerRange = float(raw_input("Enter the lower range: "))
-    except ValueError:
-        print "Numbers between 0-100 only"
-    else:
-        if lowerRange > 100 or lowerRange < 0:
-            print "Numbers between 0-100 only"
-        else:
-            break
-
-while True:
-    try:
-        higherRange = float(raw_input("Enter the higher range: "))
-    except ValueError:
-        print "Numbers between 0-100 only"
-    else:
-        if higherRange <= lowerRange or higherRange > 100 or higherRange < 0:
-            print "Higher range must be higher than " + lowerRange + " and between 0-100"
-        else:
-            break
-
-while True:
-    try:
-        interval = float(raw_input("Type a interval between duty cycles: "))
-    except ValueError:
-        print "Numbers between 0-100 only"
-    else:
-        if interval > 100 or interval < 0:
-            print "Interval must be between 0-100"
-        else:
-            break
-
+delay = delay/1000
+duration = duration/1000
+  
+print "---------------------"
 print "Delay: " + str(delay)
 print "Duration " + str(duration)
-print "Lower limit: " + str(lowerRange)
-print "Higher limit: " + str(higherRange)
-print "Interval: " + str(interval)
+print "Lower limit: " + str(lowerPowerRange)
+print "Higher limit: " + str(higherPowerRange)
+print "Power Step: " + str(powerStep)
+print "Channel: " + str(channel)
+print "---------------------"
 
-GPIO.setmode(GPIO.BOARD)
-GPIO.setup(18, GPIO.OUT)
-p = GPIO.PWM(18, 50)
-p.start(0)
+pwm = PWM(0x40)
+pwm.setPWMFreq(50)
+pwm.setPWM(channel, 0, 200)
+
+raw_input("Hit any keys after hearing the beeps...")
 
 
-x = 0.0
-value = lowerRange
+timeElapsed = 0.0
+powerLevel = lowerPowerRange
+tickValue = 200 + int(powerLevel * 2)
 
-while x < duration:
-    x += delay
+while timeElapsed < duration:
     
-    value += interval
+    pwm.setPWM(channel, 0, tickValue)
     
-    if value >= higherRange:
-        if interval > 0:
-            interval = interval * -1
-        value = higherRange
-    elif value <= lowerRange:
-        if interval < 0:
-            interval = interval * -1
-        value = lowerRange
+    if powerLevel >= higherPowerRange:
+        if powerStep > 0:
+            powerStep = powerStep * -1   
+    elif powerLevel <= lowerPowerRange:
+        if powerStep < 0:
+            powerStep = powerStep * -1
     
-    print value
-    p.ChangeDutyCycle(value)
+    powerLevel += powerStep
+    tickValue = 200 + int(powerLevel * 2)
+    timeElapsed += delay
+    
+    print "Power level: " + str(powerLevel) + "%"
     
     time.sleep(delay)
-
-p.stop()
-GPIO.cleanup()
