@@ -1,4 +1,7 @@
-from ../Adafruit-Raspberry-Pi-Python-Code/Adafruit_PWM_Servo_Driver/Adafruit_PWM_Servo_Driver import PWM
+import sys
+sys.path.append('../Adafruit-Raspberry-Pi-Python-Code/Adafruit_PWM_Servo_Driver/')
+
+from Adafruit_PWM_Servo_Driver import PWM
 import time
 
 '''
