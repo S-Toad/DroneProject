@@ -14,6 +14,7 @@ channel_list = map(int,raw_input("Enter the ESC channel(s), (Example: 12 13 14 1
 
 # This section simply reads from the ESC_Configuration.INI for the values needed
 # TODO: Make this into it's own method to keep things clean? 
+# TODO: Make a function to configure each channel seperately, this is to avoid an ESC being completed too soon or later in relative to the other ESCs
 config = SafeConfigParser()
 config.read("ESC_Configuration.INI")
 pulseHertz = int(config.get('ESC_Config', 'pulseHertz'))
