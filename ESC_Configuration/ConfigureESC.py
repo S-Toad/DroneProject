@@ -35,6 +35,7 @@ raw_input("Connect battery and hit any key after hearing 2 beeps...")
 for channel in channel_list:
     pwm.setPWM(channel, 0, bottomTickRange)
 raw_input("Hit any key after all the beeps...")
+# TODO: Use time.sleep() for ease^
 
 print "Will run at 5% for a short period"
 time.sleep(3)
