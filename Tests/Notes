@@ -1,0 +1,4 @@
+Notes:
+  The length of a pulse is 50 hz or 20ms. 
+  If for 1ms of that pulse is "on", the motor is fully off.
+  If for 2ms of that pulse is "on", the motor is full on.
