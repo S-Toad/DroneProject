@@ -1,7 +1,7 @@
 class BeepHandler:
     beepDuration = 1000
     
-    def delay(beepAmount):
+    def delay(self, beepAmount):
         delayTime = (beepAmount * beepDuration)
         
         delay(delayTime)
