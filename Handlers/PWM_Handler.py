@@ -1,5 +1,5 @@
 import Adafruit_PCA9685
-from escConfigurationHandler import ESC_Configuration_Handler
+from ESC_Configuration_Handler import ESC_Configuration_Handler
 
 class PWM_Handler():
     

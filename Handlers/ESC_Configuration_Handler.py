@@ -1,6 +1,6 @@
 import configparser
 
-class ESCConfigurationHandler:
+class ESC_Configuration_Handler:
     
     def __init__(self, reverse):
         self.reverse = reverse
