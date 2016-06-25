@@ -1,10 +1,10 @@
-from Adafruit_PWM_Servo_Driver import PWM
+import Adafruit_PCA9685
 from escConfigurationHandler import ESC_Configuration_Handler
 
 class PWM_Handler():
     
     def getPWM():
-        pwm = PWM(0x40)
+        pwm = Adafruit_PCA9685.PCA9685()
         return pwm
     
     def intializePWMFreq():
