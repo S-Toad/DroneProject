@@ -1,4 +1,4 @@
-from PWM_Handler import PWM_Handler
+from Handlers.PWM_Handler import PWM_Handler
 
 PWM_Handler.intializePWMFreq()
 
