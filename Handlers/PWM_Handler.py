@@ -15,7 +15,7 @@ class PWM_Handler():
         
     @classmethod
     def intializePWMFreq(self):
-        freq = ESCConfigurationHandler.returnPulseHertz()
+        freq = ESC_Configuration_Handler.returnPulseHertz()
         self.setPWMFreq(freq)
         
         if debug:
