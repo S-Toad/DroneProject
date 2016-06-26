@@ -1,5 +1,6 @@
 import Adafruit_PCA9685
 from ESC_Configuration_Handler import ESC_Configuration_Handler
+from time import sleep
 
 #TODO: Make an instance of this class and pass it around?
 
@@ -12,7 +13,7 @@ class PWM_Handler():
         
     @classmethod
     def intializePWMFreq(self):
-        freq = ESCConfigurationHandler.returnPulseHertz()    
+        freq = ESCConfigurationHandler.returnPulseHertz()
         self.setPWMFreq(freq)
     
     @classmethod
@@ -32,7 +33,8 @@ class PWM_Handler():
         pwm.set_pwm(channel, 0, 0)
     
     @classmethod
-    def turnOffAllChannels(self):
+    def turnOff(self):
         pwm = self.getPWM()
         pwm.set_all_pwm(0, 0)
+        sleep(0.5)
         self.setPWMFreq(0)
