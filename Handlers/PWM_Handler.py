@@ -23,7 +23,7 @@ class PWM_Handler():
     @classmethod
     def setPower(self, channel, percentPower):
         pwm = self.getPWM()
-        tick = round(percentPower * 2)
+        tick = int(round(percentPower * 2))
         pwm.set_pwm(channel, 0, tick)
     
     @classmethod
