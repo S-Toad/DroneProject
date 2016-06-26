@@ -6,7 +6,7 @@ from time import sleep
 
 class PWM_Handler():
 
-    debug = false
+    debug = False
     
     @classmethod
     def getPWM(self):
