@@ -55,4 +55,4 @@ class PWM_Handler():
         self.setPWMFreq(0)
         
         if debug:
-            print("PWM Servo Driver was turned off".)
+            print("PWM Servo Driver was turned off.")
