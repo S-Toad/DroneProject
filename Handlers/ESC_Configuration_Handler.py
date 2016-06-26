@@ -3,72 +3,65 @@ import configparser
 class ESC_Configuration_Handler:
 
     @classmethod
-    def getConfig(self):
+    def getConfig(self, option):
         fileName = '../ESC_Configuration.INI'
         config = configparser.ConfigParser()
         config.read(fileName)
         
-        return config
+        optionValue = config.get('ESC_Config', option)
+        
+        return option
     
     @classmethod
     def returnPulseHertz(self):
-        config = self.getConfig()
-        pulseHertz = int(config.get('ESC_Config', 'pulseHertz'))
+        pulseHertz = int(self.getConfig('pulseHertz'))
         
         return pulseHertz
     
     @classmethod
     def returnBottomTickRange(self):
-        config = self.getConfig()
-        bottomTickRange = int(config.get('ESC_Config', 'bottomTickRange'))
+        bottomTickRange = int(self.getConfig('bottomTickRange'))
         
         return bottomTickRange
     
     @classmethod
     def returnUpperTickRange(self):
-        config = self.getConfig()
-        upperTickRange = int(config.get('ESC_Config', 'upperTickRange'))
+        upperTickRange = int(self.getConfig('upperTickRange'))
         
         return upperTickRange
     
     @classmethod
     def returnBrakeType(self):
-        config = self.getConfig()
-        brakeType = int(config.get('ESC_Config', 'brakeType'))
+        brakeType = int(self.getConfig('brakeType'))
         
         return brakeType
     
     @classmethod
     def returnTimingMode(self):
-        config = self.getConfig()
-        timingMode = int(config.get('ESC_Config', 'timingMode'))
-        
+        timingMode = int(self.getConfig('timingMode'))
+
         return timingMode
     
     @classmethod
     def returnStartForce(self):
-        config = self.getConfig()
-        startForce = int(config.get('ESC_Config', 'startForce'))
+        startForce = int(self.getConfig('startForce'))
         
         return startForce
     
     @classmethod
     def returnControlFrequency(self):
-        config = self.getConfig()
-        controlFrequency = int(config.get('ESC_Config', 'controlFrequency'))
+        controlFrequency = int(self.getConfig('controlFrequency'))
         
         return controlFrequency
     
     @classmethod
     def returnLowVoltageProtection(self):
-        config = self.getConfig()
-        lowVoltageProtection = int(config.get('ESC_Config', 'lowVoltageProtection'))
+        lowVoltageProtection = int(self.getConfig('lowVoltageProtection'))
         
         return lowVoltageProtection
     
     @classmethod
     def returnCutOffMode(self):
-        config = self.getConfig()
-        cutOffMode = int(config.get('ESC_Config', 'cutOffMode'))
+        cutOffMode = int(self.getConfig('cutOffMode'))
         
-        return timingMode
+        return cutOffMode
