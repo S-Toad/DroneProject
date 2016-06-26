@@ -1,6 +1,6 @@
 from Handlers.PWM_Handler import PWM_Handler
 
-pwmHandler = PWM_Handler.intializePWMFreq()
+pwmHandler = PWM_Handler()
 channel = input("Enter PWM channel: ")
 
 while (True):
