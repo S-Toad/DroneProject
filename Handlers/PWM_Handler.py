@@ -15,19 +15,19 @@ class PWM_Handler():
     
     @classmethod
     def setPWMFreq(self, freq):
-        pwm = self.getPWM()   
-        pwm.setPWMFreq(freq)
+        pwm = self.getPWM()
+        pwm.set_pwm_freq(freq)
     
     @classmethod
     def setPower(self, channel, percentPower):
         pwm = self.getPWM()
         tick = round(percentPower * 2)
-        pwm.setPWM(channel, 0, tick)
+        pwm.set_pwm(channel, 0, tick)
     
     @classmethod
     def turnOffChannel(self, channel):
         pwm = self.getPWM()
-        pwm.setPWM(channel, 0, 0)
+        pwm.set_pwm(channel, 0, 0)
     
     @classmethod
     def turnOffAllChannels(self):
