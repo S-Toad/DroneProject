@@ -1,6 +1,8 @@
 import Adafruit_PCA9685
 from ESC_Configuration_Handler import ESC_Configuration_Handler
 
+#TODO: Make an instance of this class and pass it around?
+
 class PWM_Handler():
     
     @classmethod
@@ -31,7 +33,6 @@ class PWM_Handler():
     
     @classmethod
     def turnOffAllChannels(self):
-        for channel in range (0, 16):
-            self.turnOffChannel(channel)
-        
+        pwm = self.getPWM()
+        pwm.set_all_pwm(0, 0)
         self.setPWMFreq(0)
