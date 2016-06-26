@@ -4,7 +4,7 @@ class ESC_Configuration_Handler:
 
     @classmethod
     def getConfig(self):
-        fileName = 'ESC_Configuration.ini'
+        fileName = '../ESC_Configuration.INI'
         config = configparser.ConfigParser()
         config.read(fileName)
         
