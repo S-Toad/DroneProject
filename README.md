@@ -16,7 +16,7 @@
   - ~~Request an equation(3) and assure that equation is workable **End of 7/17/2016**~~ **COMPLETED**
   - ~~Methods to return a position vector and a velocity vector **End of 7/17/2016**~~ **COMPLETED**
   - Boolean to store postion and velocity in an array to a given amount **End of 7/18/2016**
-  - Format Code **End of 7/18/2016*8
+  - Format Code **End of 7/18/2016**
   - Model all parts of the drone and have available in a folder on the repository (Open Source :D ) **End of 7/19/2016/**
   - Remodel the hull of the Drone (also available) **End of 7/20/16**
   - Assure calculations of the hull and order a 3d-print **End of 7/21/16**
