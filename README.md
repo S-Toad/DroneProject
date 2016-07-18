@@ -10,3 +10,18 @@
 - Include a derivative calculator function
 - Create a function to return the direction and speed of a equation at certain time values
 - A lottttttt of physics math *To Do: Expand on the physics*
+
+### Schedule
+ - Finish Math Equations:
+  - Request an equation(3) and assure that equation is workable **End of 7/17/2016**
+  - Methods to return a position vector and a velocity vector **End of 7/17/2016**
+  - Boolean to store postion and velocity in an array to a given amount **End of 7/18/2016**
+  - Model all parts of the drone and have available in a folder on the repository (Open Source :D ) **End of 7/19/2016/**
+  - Remodel the hull of the Drone (also available) **End of 7/20/16**
+  - Assure calculations of the hull and order a 3d-print **End of 7/21/16**
+  - Resolder all components into new breadboard **End of 7/21/16**
+  - Connect Voltage Regulator and test powering the Raspberry Pi via big battery **7/22/16**
+  - Work with accelerometer and gyroscope, create methods to get data from these components **TBD**
+  - Add some sort of handler for the math to check with to store world velocity vectors. AKA, a system in order to store gravity, wind resistance, drag, and other forces. **TBD**
+  - Put together drone? **TBD**
+  - Create simple program for drone to slowy go upwards until speed == 0 **TBD**
