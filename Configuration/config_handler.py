@@ -1,4 +1,4 @@
-import configparser
+import ConfigParser
 
 class ConfigHandler:
     def __init__(self, fileName, section):
@@ -21,5 +21,5 @@ class ConfigHandler:
         return self.config.has_section(section)
     
     def reload(self):
-        self.config = configparser.ConfigParser()
+        self.config = ConfigParser.ConfigParser()
         self.config.read(self.fileName)

@@ -1,9 +1,9 @@
-from sympy import *
+from sympy import diff
 from sympy.abc import t
 from sympy.parsing.sympy_parser import parse_expr
 
 
-class MathEquationHandler:
+class EquationHandler:
     def __init__(self, equation, precision):
         self.equation = parse_expr(equation)
         self.derivEquation = diff(equation)
