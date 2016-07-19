@@ -1,5 +1,7 @@
 from configuration.config_handler import ConfigHandler
 from drone_math.parametric_vector_handler import ParametricVectorHandler
+import time
+
 config = ConfigHandler('config.ini', 'Config')
 version = config.getData('version')
 
@@ -20,4 +22,13 @@ while(True):
         mathConfig.setSection(mathSection)
         break
 
-equationVectorHandler = ParametricVectorHandler(mathConfig)
+parametricVector = ParametricVectorHandler(mathConfig)
+
+startTime = time.time()
+elapsedTime = 0.00
+while(elapsedTime < 10):
+    # Elapsed time is in seconds
+    elapsedTime = time.time() - startTime
+    
+    v = parametricVector.returnVector(elapsedTime)
+    v.printVector()
