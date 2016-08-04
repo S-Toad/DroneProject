@@ -1,4 +1,4 @@
-from Handlers.ConfigHandler import ConfigHandler
+from handlers.ConfigHandler import ConfigHandler
 
 class ESCConfigHandler(ConfigHandler):
     fileName = 'ESC_Configuration.INI'

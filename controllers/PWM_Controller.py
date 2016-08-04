@@ -1,5 +1,4 @@
 import Adafruit_PCA9685
-from ESC_Configuration_Handler import ESC_Configuration_Handler
 from time import sleep
 
 class PWMHandler():
